@@ -1,0 +1,111 @@
+### get all users
+
+GET http://localhost:4000/api/users
+
+### get one user
+
+GET http://localhost:4000/api/users/1
+Content-Type: application/json
+
+{
+    "id": "1"
+}
+
+### get one user 2
+
+GET http://localhost:4000/api/users/2
+Content-Type: application/json
+
+{
+    "id": "2"
+}
+
+### create an user
+
+POST http://localhost:4000/api/users
+Content-Type: application/json 
+
+{
+    "name": "bob",
+    "email": "bob@email.com",
+    "password": "password" 
+}
+
+### create a new user 2
+
+POST http://localhost:4000/api/users
+Content-Type: application/json 
+
+{
+    "name": "bill",
+    "email": "bill@email.com",
+    "password": "password3" 
+}
+
+### update an existing user
+
+PATCH http://localhost:4000/api/users/3
+Content-Type: application/json
+
+{
+    "name": "bob",
+    "newName": "benny",
+    "email": "bennysnewemail@email.com",
+    "password": "bennyspassword"
+}
+
+### update an existing user (invalid user)
+
+PATCH http://localhost:4000/api/users/4
+Content-Type: application/json
+
+{
+    "name": "john",
+    "newName": "benny",
+    "email": "bennysnewemail@email.com",
+    "password": "bennyspassword"
+}
+
+### attempt to delete an user with a wrong password
+
+DELETE http://localhost:4000/api/users/4
+Content-Type: application/json
+
+{
+    "name": "bob",
+    "email": "bob@email.com",
+    "password": "boguspassword"
+}
+
+### attempt to delete an user with a correct password
+
+DELETE http://localhost:4000/api/users/4
+Content-Type: application/json
+
+{
+    "name": "bob",
+    "email": "bob@email.com",
+    "password": "password"
+}
+
+### attempt login
+
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+    "name": "benny",
+    "password": "bennyspassword"
+}
+
+### attempt logout
+DELETE http://localhost:5000/auth/logout
+Content-Type: application/json
+
+{
+    "rt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmVubnkiLCJwYXNzd29yZCI6ImJlbm55c3Bhc3N3b3JkIiwiaWF0IjoxNjUwMDQ5NTUyfQ.xiYw63IXaBRJw8Js5aX_G6WRPdi0q08UBSUs4R5RcgA"
+}
+
+### attempt at find one particular user fra the database
+GET http://localhost:4000/api/users
+Authorization: 

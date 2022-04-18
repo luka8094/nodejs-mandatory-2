@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-main": "nodemon mainServer.js",
+    "start-auth": "nodemon authServer.js",
+    "start-all": "npm-run-all --parallel start-main start-auth",
+    "create-db": "nodemon ./database/schema/dbSchema.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-rate-limit": "^6.3.0",
+    "helmet": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "npm-run-all": "^4.1.5",
+    "sqlite": "^4.0.25",
+    "sqlite3": "^5.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
